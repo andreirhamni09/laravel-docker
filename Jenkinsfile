@@ -25,7 +25,6 @@ pipeline {
 
         stage('Fix File Permissions') {
             steps {
-                bat 'timeout /t 5'
                 bat 'docker exec laravel-app chmod 664 /var/www/.env'
             }
         }
