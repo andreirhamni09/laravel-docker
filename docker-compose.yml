@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   app:
     build:
@@ -6,6 +8,8 @@ services:
     container_name: laravel-app
     volumes:
       - ./app:/var/www
+    depends_on:
+      - mysql
     networks:
       - laravel
 
@@ -23,7 +27,7 @@ services:
       - laravel
 
   mysql:
-    image: mysql:lts
+    image: mysql:8.0
     container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
