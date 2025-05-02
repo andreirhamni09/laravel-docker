@@ -7,7 +7,13 @@ pipeline {
                 git url: 'https://github.com/andreirhamni09/laravel-docker.git', branch: 'master'
             }
         }
-
+        
+        stage('Prepare .env') {
+            steps {
+                bat 'cp app/.env.example app/.env'
+            }
+        }
+        // ganti bat menjadi sh jika yang digunakan adalah os linux begitu juga sebaliknya
         stage('Build Docker') {
             steps {
                 bat 'docker-compose down'
