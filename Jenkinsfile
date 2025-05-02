@@ -24,8 +24,7 @@ pipeline {
         stage('Run Laravel Commands') {
             steps {
                 bat 'docker exec laravel-app composer install'
-                bat 'cp app/.env.example app/.env'
-                bat 'docker exec laravel-app php artisan migrate --force'
+                bat 'docker exec laravel-app php artisan key:generate'
             }
         }
     }
