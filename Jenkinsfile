@@ -47,6 +47,7 @@ pipeline {
         stage('Laravel Setup') {
             steps {
                 bat 'docker exec laravel-app composer install'
+                bat 'timeout /t 10' // delay agar mysql ready
                 bat 'docker exec laravel-app php artisan key:generate'
                 bat 'docker exec laravel-app php artisan migrate --force'
             }
