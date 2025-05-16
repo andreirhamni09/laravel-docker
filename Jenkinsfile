@@ -23,6 +23,12 @@ pipeline {
             }
         }
 
+        stage('remove .env') {
+            steps {
+                bat 'del app\\.env'
+            }
+        }
+
         stage('Prepare .env') {
             steps {
                 bat 'if not exist app\\.env copy app\\.env.example app\\.env'
