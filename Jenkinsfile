@@ -7,6 +7,8 @@ pipeline {
                 git url: 'https://github.com/andreirhamni09/laravel-docker.git', branch: 'master'
             }
         }
+    
+
 
         stage('Cleanup Docker (Optional)') {
             steps {
