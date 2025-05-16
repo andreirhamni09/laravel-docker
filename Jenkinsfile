@@ -49,7 +49,6 @@ pipeline {
                 bat 'docker exec laravel-app composer install'
                 bat 'ping -n 11 127.0.0.1 > nul' // ini delay pengganti timeout
                 bat 'docker exec laravel-app php artisan key:generate'
-                bat 'docker exec laravel-app php artisan migrate --force'
             }
         }
     }
